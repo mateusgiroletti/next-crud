@@ -1,57 +1,16 @@
-import { useEffect, useState } from "react";
-
 import Layout from "../components/Layout";
 import Table from "../components/Table";
 import Button from "../components/Button";
 import Form from "../components/Form";
-
-import Client from "../core/Client";
-import ClientRepository from "../core/ClientRepository";
-import CollectionClient from "../firebase/db/CollectionClient";
+import useClients from "../hooks/useclients";
 
 export default function Home() {
-
-    const repo: ClientRepository = new CollectionClient();
-
-    const [visible, setVisible] = useState<'table' | 'form'>('table');
-    const [client, setClient] = useState<Client>(Client.void);
-    const [clients, setClients] = useState<Client[]>([]);
-
-    useEffect(getAll, []);
-
-
-    function getAll() {
-        repo.getAll().then((clients) => {
-            setClients(clients);
-            setVisible('table')
-        })
-    }
-
-    function clientSelected(client: Client) {
-        setClient(client);
-        setVisible('form');
-    }
-
-    async function clientDeleted(client: Client) {
-        await repo.delete(client);
-        getAll();
-    }
-
-    async function saveClient(client: Client) {
-        await repo.save(client);
-        getAll();
-    }
-
-    function newClient() {
-        setClient(Client.void);
-        setVisible('form');
-    }
-
+    const { client, clients, tableVisible, showTabel, selectedClient, newClient, deleteClient, saveClient } = useClients();
 
     return (
         <div className='flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white'>
             <Layout title="Cadastro Simples">
-                {visible === 'table' ? (
+                {tableVisible ? (
                     <>
                         <div className="flex justify-end">
                             <Button
@@ -64,15 +23,15 @@ export default function Home() {
                         </div>
                         <Table
                             clients={clients}
-                            clientSelected={clientSelected}
-                            clientDeleted={clientDeleted}
+                            clientSelected={selectedClient}
+                            clientDeleted={deleteClient}
                         />
                     </>
                 ) : (
                     <Form
                         client={client}
                         clientChange={saveClient}
-                        canceled={() => setVisible('table')}
+                        canceled={() => showTabel}
                     />
                 )}
             </Layout>
