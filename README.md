@@ -1,34 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Crud
 
-## Getting Started
+This was my first contact with NextJS, a simple customer CRUD, where I watched some classes from the channel [Cod3er](https://www.youtube.com/@cod3r). It was important to know some basic concepts of the Next Js framework.
 
-First, run the development server:
+## The Project
 
-```bash
-npm run dev
-# or
-yarn dev
+A CRUD of customers in NextJS, where firebase was used to store customer information (name and age).
+
+## Technologies
+
+<ul>
+    <li>
+        NextJS
+        <p>
+            Framework React que permite funcionalidades de renderização do lado do servidor e geração de sites estaticos para aplicativos web.
+        </p>
+    </li>
+    <li>
+        Firebase
+        <p>
+            Conjunto de serviços de hospedagem para qualquer tio de aplicação, no projeto foi utilizado o Firestore Database
+        </p>
+    </li>
+     <li>
+        TypeScript
+        <p>
+            Adding typing to javascript, making it easier to catch errors during development, and including the IDE's IntelliSense, making development easier.
+        </p>
+    </li>
+    <li>
+        Tailwind CSS
+        <p>
+            Library that brings CSS classes and other elements ready to use in development, thus accelerating the creation of interfaces. But it is also possible to change the color palettes and other classes in an easy way and without having to directly change the CSS code.
+        </P>
+    </li>
+</ul>
+
+## Interfaces
+
+The customer view screen can be seen below, basically it is a table returning the customers registered in the database, and with the actions to edit and delete the customer, in addition to being possible to create a new customer in the "New customer" button
+
+<img src="./.github/images/home.png" alt="Home" />
+
+Customer registration screen, where the user can enter the name and age.
+
+<img src="./.github/images/create.png" alt="Create" />
+
+## Test the project yourself
+
+First it will be necessary to create a project in [Firebase](https://console.firebase.google.com/). And create a new Firestore Database.
+
+To run the project locally just clone the repository and run the following commands.
+
+Clone on your machine:
+
+```console
+git clone https://github.com/mateusgiroletti/next-crud.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Change to project directory and install dependencies via npm:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```console
+cd next-crud && npm i
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Rename the .env.example to .env to put the firestore database keys. This information is available in your firebase project.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+```console
+mv .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+And to run the developed interface:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```console
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Accessing the link provided in the console output.
