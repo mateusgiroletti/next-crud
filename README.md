@@ -12,13 +12,13 @@ A CRUD of customers in NextJS, where firebase was used to store customer informa
     <li>
         NextJS
         <p>
-            Framework React que permite funcionalidades de renderização do lado do servidor e geração de sites estaticos para aplicativos web.
+            React framework that enables server-side rendering capabilities and static site generation for web applications.
         </p>
     </li>
     <li>
         Firebase
         <p>
-            Conjunto de serviços de hospedagem para qualquer tio de aplicação, no projeto foi utilizado o Firestore Database
+            Set of hosting services for any type of application, the project used the Firestore Database.
         </p>
     </li>
      <li>
